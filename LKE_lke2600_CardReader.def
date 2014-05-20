@@ -1,0 +1,9 @@
+; LKE_lke2600_CardReader.def : Declares the module parameters.
+
+LIBRARY      "LKE_LKE2600_CARDREADER.OCX"
+
+EXPORTS
+	DllCanUnloadNow     @1 PRIVATE
+	DllGetClassObject   @2 PRIVATE
+	DllRegisterServer   @3 PRIVATE
+	DllUnregisterServer @4 PRIVATE

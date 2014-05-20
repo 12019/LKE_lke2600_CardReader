@@ -1,0 +1,79 @@
+// LKE_lke2600_CardReader.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (LKE_lke2600_CardReader.tlb) that will become a resource in
+// LKE_lke2600_CardReader.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(7BE73FA4-DDBC-425C-8428-A9E644DB85E4), version(1.0),
+  helpfile("LKE_lke2600_CardReader.hlp"),
+  helpstring("LKE_lke2600_CardReader ActiveX Control module"),
+  control ]
+library LKE_LKE2600_CARDREADERLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CLKE_lke2600_CardReaderCtrl
+
+	[ uuid(E4204929-6E28-41A9-A2B1-2E4ECE931546),
+	  helpstring("Dispatch interface for LKE_lke2600_CardReader Control"), hidden ]
+	dispinterface _DLKE_lke2600_CardReader
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CLKE_lke2600_CardReaderCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CLKE_lke2600_CardReaderCtrl)
+			[id(1)] void Open();
+			[id(2)] short OpenDevice();
+			[id(3)] void CloseDevice();
+			[id(4)] short EjectCard();
+			[id(5)] long CardPowerOn();
+			[id(6)] short CardPowerOff();
+			[id(7)] short FindCard();
+			[id(8)] void WaitForInsertCard(long nTimeOut);
+			[id(9)] short APDUExchange(BSTR cAPDU, short cAPDULen, VARIANT* rAPDU, short* rAPDULen);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CLKE_lke2600_CardReaderCtrl
+
+	[ uuid(9AED877F-AB67-4CDF-A526-58C57A0FA61A),
+	  helpstring("Event interface for LKE_lke2600_CardReader Control") ]
+	dispinterface _DLKE_lke2600_CardReaderEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CLKE_lke2600_CardReaderCtrl)
+			[id(1)] void CardInsert(short nState);
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CLKE_lke2600_CardReaderCtrl
+
+	[ uuid(FF95882B-5841-4AB2-9A45-47047C288198),
+	  helpstring("LKE_lke2600_CardReader Control"), control ]
+	coclass LKE_lke2600_CardReader
+	{
+		[default] dispinterface _DLKE_lke2600_CardReader;
+		[default, source] dispinterface _DLKE_lke2600_CardReaderEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};
